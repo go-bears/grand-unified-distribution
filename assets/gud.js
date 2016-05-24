@@ -90,7 +90,6 @@
       ['Sym Prentice', 'Logistic', {color: '#CC333F'}],
       ['Frechet', 'Gumball', {color: '#CC333F'}],
       ['Frechet', 'Inverse Exponential', {color: '#CC333F'}],
-      ['Frechet', 'Inverse Exponential', {color: '#CC333F'}]
       );
 
     jQuery(function(){
