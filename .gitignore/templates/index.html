@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Grand Unified Distribution</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- imports for jquery 
+    ––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+  <!-- import springy.js library 
+  ––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="assets/springy.js"></script>
+  <script src="assets/springyui.js"></script>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="two columns" style="margin-top: 5%">
+        <h4>Grand Unified Distribution (GUD)</h4>
+          <p>This is a force layout data visualization as proposed in 
+            <a href="http://threeplusone.com/FieldGuide.pdf"> 
+              A Field Guide to Continuous Probability Distributions</a> 
+              for the 
+            <a href="http://threeplusone.com/gec/">Crooks Lab</a> 
+            at the Lawerence Berkeley National Lab
+          </p>
+          <p> This Force Layout Graph illustrates the relationships between
+            GUD and 28 major probability distributions. 
+          </p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="ten columns" style="margin-top: 5%">
+          <canvas id="distributions" width="1000" height="500" />  
+          <script>
+            var graph = new Springy.Graph();
+            graph.addNodes(   
+               "GUD",
+               "General Beta",
+               "Pearson",
+               "General Beta Prime",
+               "Beta",
+               "Beta Exponential",
+               "Beta Prime",
+               "Prentice",
+               "Pearson IV",
+               "Unit Gamma",
+               "Amoroso",
+               "Burr",
+               "Pearson II",
+               "Power",
+               "Gamma",
+               "Gamma Exponential",
+               "Inverse Gamma",
+               "Log Logistic",
+               "Weibull",
+               "Sym Prentice",
+               "Frechet",
+               "Log Normal",
+               "Exponential",
+               "Laplace",
+               "Normal",
+               "Logistic",
+               "Inverse Exponential",
+               "Cauchy",
+               "Gumball",
+               "Pearson VII",
+               "Uniform"
+               );
+               
+
+            graph.addEdges(
+              ['GUD', 'General Beta', {color: '#00A0B0', label: 'shape 4 -> 3'}],
+              ['GUD', 'Pearson', {color: '#00A0B0'}],
+              ['GUD', 'General Beta Prime', {color: '##00A0B0'}],
+              
+              ['General Beta', 'Beta', {color: '#6A4A3C', label: 'shape 3 -> 2'}],
+              ['General Beta', 'Beta Exponential', {color: '#6A4A3C'}],
+              ['General Beta', 'Unit Gamma', {color: '#6A4A3C'}],
+              ['General Beta', 'Amoroso', {color: '#6A4A3C'}],
+              ['General Beta', 'Beta Prime', {color: '#6A4A3C'}],
+              ['Pearson', 'Beta', {color: '#6A4A3C'}],
+              ['Pearson', 'Pearson IV', {color: '#6A4A3C'}],
+              ['Pearson', 'Beta Prime', {color: '#6A4A3C'}],
+              ['General Beta Prime', 'Beta Prime', {color: '#6A4A3C'}],
+              ['General Beta Prime', 'Prentice', {color: '#6A4A3C'}],
+              ['General Beta Prime', 'Amoroso', {color: '#6A4A3C'}],
+              ['General Beta Prime', 'Burr', {color: '#6A4A3C'}],
+              ['Beta', 'Pearson II', {color: '#EDC951', label: 'shape 2 -> 1'}],
+              ['Beta', 'Gamma', {color: '#EDC951'}],
+              ['Beta Exponential', 'Gamma Exponential', {color: '#EDC951'}],
+              ['Beta Prime', 'Gamma', {color: '#EDC951'}],
+              ['Beta Prime', 'Inverse Gamma', {color: '#EDC951'}],
+              ['Prentice', 'Gamma Exponential', {color: '#EDC951'}],
+              ['Prentice', 'Sym Prentice', {color: '#EDC951'}],
+              ['Pearson IV', 'Inverse Gamma', {color: '#EDC951'}],
+              ['Pearson IV', 'Pearson VII', {color: '#EDC951'}],
+              ['Unit Gamma', 'Power', {color: '#EDC951'}],
+              ['Unit Gamma', 'Gamma', {color: '#EDC951'}],
+              ['Amoroso', 'Gamma', {color: '#EDC951'}],
+              ['Amoroso', 'Gamma Exponential', {color: '#EDC951'}],
+              ['Amoroso', 'Inverse Gamma', {color: '#EDC951'}],
+              ['Amoroso', 'Log Normal', {color: '#EDC951'}],
+              ['Amoroso', 'Weibull', {color: '#EDC951'}],
+              ['Burr', 'Log Logistic', {color: '#EDC951'}],
+              ['Burr', 'Frechet', {color: '#EDC951'}],
+
+              ['Pearson II', 'Uniform', {color: '#CC333F',label: 'shape 1 -> 0'}],
+              ['Pearson II', 'Normal', {color: '#CC333F'}],
+              ['Power', 'Normal', {color: '#CC333F'}],
+              ['Power', 'Exponential', {color: '#CC333F'}],
+              ['Gamma', 'Exponential', {color: '#CC333F'}],
+              ['Gamma Exponential', 'Gumball', {color: '#CC333F'}],
+              ['Inverse Gamma', 'Normal', {color: '#CC333F'}],
+              ['Inverse Gamma', 'Inverse Exponential', {color: '#CC333F'}],
+              ['Log Logistic', 'Logistic', {color: '#CC333F'}],
+              ['Log Normal', 'Normal', {color: '#CC333F'}],
+              ['Pearson VII', 'Normal', {color: '#CC333F'}],
+              ['Pearson VII', 'Cauchy', {color: '#CC333F'}],
+              ['Weibull', 'Exponential', {color: '#CC333F'}],
+              ['Weibull', 'Gumball', {color: '#CC333F'}],
+              ['Sym Prentice', 'Laplace', {color: '#CC333F'}],
+              ['Sym Prentice', 'Normal', {color: '#CC333F'}],
+              ['Sym Prentice', 'Logistic', {color: '#CC333F'}],
+              ['Frechet', 'Gumball', {color: '#CC333F'}],
+              ['Frechet', 'Inverse Exponential', {color: '#CC333F'}]
+              );
+
+
+            jQuery(function(){
+              var springy = jQuery('#distributions').springy({
+                graph: graph
+              });
+            });
+          </script>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
